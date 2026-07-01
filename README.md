@@ -1,20 +1,21 @@
 # shopify-auto-product skill
 
-This repository contains a Hermes Agent skill named `shopify-auto-product`.
+`shopify-auto-product` is an open-source Hermes Agent skill for end-to-end Shopify product research and launch workflows.
+
+It is intentionally **generic**. It is not tied to one product, niche, store, or past project. Each time it is used, the agent should research the latest market evidence and generate a fresh plan based on the user's current situation.
 
 ## What it does
 
-The skill documents an end-to-end workflow for automatically researching, selecting, and launching low-budget Shopify test products. It includes:
+The skill helps an agent:
 
-- audience-first product research
-- product demand and keyword research
-- lightweight / low-risk product selection criteria
-- Shopify Admin automation via local Chrome/Edge CDP
-- Shopify product, collection, and landing page setup
-- shipping and refund policy templates
-- fulfillment app caveats for DSers / CJ Dropshipping / AliExpress
-- legal product image guidance
-- TikTok Pixel / Meta Pixel setup prerequisites
+- research audiences before products
+- identify pain points, keywords, reviews, competitors, ads, and marketplace demand
+- score product ideas with a reusable 100-point framework
+- reject high-risk products such as regulated, IP-risk, heavy, fragile, or low-margin items
+- produce Shopify test plans with hero SKU, add-on, bundle, collection, and landing page structure
+- operate Shopify Admin via browser/CDP when authorized
+- draft shipping and refund policy logic aligned with actual fulfillment
+- prepare image, supplier, DSers/CJ/AliExpress, TikTok Pixel, and Meta Pixel next steps
 
 ## Skill path
 
@@ -24,7 +25,7 @@ skills/productivity/shopify-auto-product/SKILL.md
 
 ## How to use
 
-Copy the `skills/productivity/shopify-auto-product` folder into your Hermes skills directory, or keep it in a Hermes-compatible skills repository.
+Copy the `skills/productivity/shopify-auto-product` folder into a Hermes-compatible skills directory, or keep this repository as a shareable skill source.
 
 In Hermes, refer to it as:
 
@@ -35,11 +36,16 @@ shopify-auto-product
 Example prompt:
 
 ```text
-Use the shopify-auto-product skill to find and launch the next Shopify test product.
+Use the shopify-auto-product skill to research the latest Shopify product opportunities for a low-budget test store and give me an execution plan.
 ```
 
-## Notes
+## Important notes
 
-This skill is based on a real Shopify setup workflow for a low-budget Canada-based student seller targeting US/Canada with China-direct-friendly products.
+- The skill should not reuse private project details as generic examples.
+- It should use current research whenever product recommendations are requested.
+- Policy templates are operational ecommerce drafts, not legal advice.
+- Images, fulfillment apps, and pixels should only be marked complete after actual authorization and verification.
 
-Policy templates inside the skill are operational ecommerce drafts, not legal advice.
+## License
+
+MIT

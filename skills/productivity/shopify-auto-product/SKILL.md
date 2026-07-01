@@ -1,72 +1,101 @@
 ---
 name: shopify-auto-product
-description: "Use when automatically researching, selecting, and launching low-budget Shopify test products: find niches, create products/collections/pages in Shopify Admin via local CDP, write policies, and prepare fulfillment/pixel/image next steps."
-version: 1.0.0
+description: "Use when the user wants an end-to-end Shopify auto-product workflow: research current markets, find audiences and pain points, score product ideas, then produce or execute Shopify product, collection, page, policy, fulfillment, image, and pixel setup steps based on the latest available evidence."
+version: 1.1.0
 author: Hermes Agent
 license: MIT
 metadata:
   hermes:
-    tags: [shopify, ecommerce, dropshipping, pet-products, product-launch, cdp]
+    tags: [shopify, ecommerce, dropshipping, product-research, product-launch, cdp]
     related_skills: [shopify-store-operations, industry-dissection-template, agent-reach]
 ---
 
-# Shopify Pet Product Launch Workflow
+# Shopify Auto Product Workflow
 
 ## Overview
 
-This skill captures the reusable workflow used to research and set up a low-budget Shopify product test for a Canada-based student seller targeting the US/Canada first, with optional UK/Australia later. The specific launch example was a **pet hair cleanup** product line built around lightweight, non-sensitive, China-direct-friendly products:
+This skill is an open, reusable workflow for Shopify product research and launch execution. It is **not tied to any one store, niche, product, country, or prior project**. Use it whenever the user wants to find a Shopify test product, validate the opportunity with current evidence, and turn the result into concrete Shopify launch assets.
 
-1. Reusable Pet Hair Remover Roller
-2. Reusable Pet Hair Removal Glove
-3. Pet Hair Roller + Grooming Glove Set
-4. Collection: Pet Hair Cleanup Essentials
-5. Landing page: Pet Hair Cleanup Essentials
-6. Shipping Policy and Return/Refund Policy for China-direct testing
+The workflow has two modes:
 
-The workflow emphasizes real execution in Shopify Admin, not just advice. Use the user's logged-in local Chromium browser through CDP when cloud browser sessions hit Shopify login, Cloudflare, or cookie isolation.
+1. **Research mode** — discover audiences, pain points, keywords, social proof, competitors, suppliers, pricing, and risks using the latest available data.
+2. **Execution mode** — create or update Shopify products, collections, landing pages, policies, navigation, images, fulfillment mappings, and pixel setup when the user has provided access and approvals.
+
+Always adapt the output to the user's current market, budget, fulfillment model, and risk tolerance. Do not reuse a previous project's products, prices, SKUs, or store-specific details unless the user explicitly asks for that exact project.
 
 ## When to Use
 
-Use this skill when the user wants to:
+Use this skill when the user asks to:
 
-- Research Shopify product directions for low-budget dropshipping / China-direct testing
-- Choose lightweight, non-sensitive, low-risk ecommerce products
-- Build a first Shopify product line around one hero SKU + add-on + bundle
-- Create Shopify products, collections, pages, and policies in the actual admin
-- Use local Chrome/Edge CDP at `127.0.0.1:9222` to operate an already logged-in Shopify session
-- Set up first product-page/landing-page structure before adding supplier images, DSers/CJ, or pixels
+- Find Shopify product ideas automatically
+- Research a niche or audience for ecommerce testing
+- Build a low-budget dropshipping or China-direct test plan
+- Score product ideas and choose what to test first
+- Turn research into Shopify products, collections, landing pages, or policies
+- Operate Shopify Admin through the user's logged-in browser session
+- Prepare DSers, CJ Dropshipping, AliExpress, 1688, supplier, image, TikTok Pixel, or Meta Pixel next steps
+- Produce a reusable execution plan that can be run again with fresh data
 
-Do **not** use this for:
+Do **not** use this skill to:
 
-- Medical, supplement, cosmetics, food, weapons, adult, tobacco, alcohol, CBD, or regulated products
-- Products requiring high-certification compliance unless the user explicitly accepts that risk
-- Copying supplier/marketplace images without permission
-- Pretending DSers/CJ/TikTok/Meta are connected without account authorization and pixel IDs
+- Recommend regulated or high-risk products without warning
+- Copy another store's product images or descriptions
+- Pretend a fulfillment app, supplier, pixel, or Shopify setting is connected when it has not been verified
+- Reuse historical project details as if they are generic best practice
+- Give only abstract advice when the user asked for a working Shopify artifact
 
-## User and Product Constraints
+## Core Principles
 
-Default assumptions from this launch pattern:
+1. **Current evidence first.** Search and verify current market signals before recommending products.
+2. **Audience before product.** Start with people and pain points, then find products that solve them.
+3. **Low-risk product filters.** Prefer lightweight, non-sensitive, non-fragile, non-regulated items suitable for direct fulfillment or later 3PL/warehouse migration.
+4. **Short-form content fit.** Prefer products whose value can be shown in a 3–10 second TikTok/Reels demo.
+5. **Execution over inspiration.** If the user asks to build in Shopify and access is available, create the actual artifact and verify it saved.
+6. **No project leakage.** Keep the skill generic. Examples must be clearly labeled as examples, not embedded as the user's current product line.
+7. **No false verification.** Mark evidence as insufficient when data is weak or access is missing.
 
-- Seller is a Canada-based student with limited budget
-- No inventory at the start; test first via Shopify
-- Target markets: US and Canada by default
-- Advantage: can source from China
-- Product constraints:
-  - lightweight and small
-  - non-fragile
-  - no battery or minimal electronics
-  - non-food, non-drug, non-supplement, non-medical
-  - no imitation brands or IP-risk products
-  - not clothing/size-dependent high-return SKUs
-  - visually demonstrable in short-form video
-  - feasible China sourcing and direct fulfillment
-  - target selling price ideally around USD/CAD 30–80 for main/bundle offers, lower for add-ons only
+## Default User Assumptions to Confirm or Override
+
+If the user gives no extra context, assume:
+
+- They want to start with low budget
+- They do not want to hold inventory at first
+- They prefer lightweight, non-sensitive products
+- They are testing with Shopify first
+- They may source from China and ship to overseas customers
+- Main target markets are the US and Canada unless stated otherwise
+
+Override these defaults whenever the user provides a different market, budget, fulfillment method, or risk preference.
+
+## Product Risk Filters
+
+Automatically reject or heavily penalize:
+
+- Food, medicine, supplements, cosmetics, medical devices
+- Products with strong certification or compliance requirements
+- Weapons, self-defense items, adult products, tobacco, alcohol, CBD
+- Large, heavy, fragile, or high-breakage products
+- Clothing or shoes where sizing drives high returns
+- Trademarked, branded, character, sports-team, or lookalike products
+- Products with weak margins after ad spend and shipping
+- Products that depend on exaggerated, medical, safety, or guaranteed-performance claims
+
+Prefer products that are:
+
+- Small and lightweight
+- Non-fragile
+- Manual or simple electronics only
+- Easy to explain visually
+- Easy to source from multiple suppliers
+- Usable across US/Canada/UK/Australia without complex compliance
+- Sellable as hero SKU + add-on + bundle
+- Reasonably priced for paid social testing
 
 ## Research Workflow
 
 ### 1. Find audiences first
 
-Research at least 10 potential audiences before picking products. Useful starting audiences:
+Research at least 10 potential audiences before choosing products. Example audience categories include:
 
 - Pet owners
 - Car owners
@@ -77,93 +106,139 @@ Research at least 10 potential audiences before picking products. Useful startin
 - Outdoor users
 - Students
 - Gamers
-- Home organization enthusiasts
+- Home organization buyers
+- Parents
+- Beauty tool buyers
+- Hobbyists and craft users
+- Remote workers
 
 For each audience, evaluate:
 
 - Who they are
-- Specific repeated pain points
-- Willingness to pay
-- Suitability for Shopify ad conversion
-- Whether the problem is visible enough for TikTok/Reels demos
+- Their specific repeated pain points
+- Whether the pain is urgent, frequent, embarrassing, costly, or visually obvious
+- Whether they already spend money on solutions
+- Whether the problem is easy to demonstrate in short-form content
+- Whether paid social traffic can convert without heavy education
 
 ### 2. Find demand and keywords
 
-For each promising audience, collect:
+For each promising audience, gather current evidence from available sources:
 
-- Google/SEO trend signals where available
-- Common search keywords
-- Long-tail keywords
-- TikTok/Instagram/YouTube Shorts content angles
-- Reddit/Quora/Amazon review pain points
-- Common complaints
-- Products users are already buying
+- Google Search / SEO results
+- Google Trends or comparable trend signals when available
+- TikTok / Instagram / YouTube Shorts content patterns
+- Reddit, Quora, forum, and review complaints
+- Amazon, Etsy, eBay, TikTok Shop, Temu, AliExpress, 1688, or other marketplace demand
+- Pinterest or visual-search demand where relevant
+- Meta Ad Library / TikTok Creative Center / ad spy signals where accessible
 
-For pet hair cleanup, useful keyword themes include:
+For each audience/product cluster, record:
 
-- pet hair remover
-- reusable pet hair remover
-- pet hair remover roller
-- dog hair remover for couch
-- cat hair remover for furniture
-- pet hair remover for car seats
-- reusable lint roller for pet hair
-- pet grooming glove
-- dog shedding glove
-- cat grooming glove
+- Main search terms
+- Long-tail search terms
+- Pain-point phrases in the user's language
+- Review complaints
+- Competitor promises
+- Common objections
+- Existing products users buy
+- Evidence gaps
 
-### 3. Find products
+### 3. Find product candidates
 
-Search across Amazon, TikTok, AliExpress, 1688, Temu, Etsy, eBay, Pinterest, Meta Ad Library, and TikTok Creative Center where available.
+For each audience, identify products that solve the pain. For each candidate, collect:
 
-For the pet hair launch, the product logic was:
+- Product name / generic category name
+- Pain solved
+- Likely target buyer
+- Marketplace demand signals
+- Social-media content angles
+- Competitor stores and offers
+- China sourcing feasibility
+- Estimated supplier cost
+- Estimated shipping weight and dimensions
+- Estimated overseas selling price
+- Estimated gross margin before ad spend
+- Compliance, IP, platform, and return-risk notes
 
-- Hero SKU: reusable pet hair remover roller
-- Add-on: reusable pet hair removal glove
-- Bundle: roller + glove set
+### 4. Score candidates
 
-Why this combination works:
+Use this 100-point model:
 
-- Lightweight
-- Manual/no battery
-- Non-sensitive product category
-- Clear before/after content potential
-- Easy to understand in 3 seconds
-- Solves a recurring pet-owner pain
-- Bundle increases AOV without adding much complexity
+| Criterion | Points |
+|---|---:|
+| Pain intensity | 20 |
+| Search demand | 15 |
+| Social content potential | 15 |
+| Existing purchase demand | 15 |
+| China supply feasibility | 10 |
+| Low logistics difficulty | 10 |
+| Margin potential | 10 |
+| Competitor weakness clarity | 5 |
 
-### 4. Score products
+Output a scored table and mark each product as:
 
-Use this 100-point scoring model:
+- **Test now** — strong enough for a first Shopify test
+- **Watchlist** — promising but needs more data or better supplier validation
+- **Reject** — risk, margin, demand, compliance, or differentiation is too weak
 
-- Pain intensity: 20
-- Search demand: 15
-- Social content potential: 15
-- Existing purchase demand on Amazon/Etsy/TikTok: 15
-- China supply feasibility: 10
-- Low logistics difficulty: 10
-- Margin potential: 10
-- Competitor weakness clarity: 5
+## Output Format for Product Research
 
-Automatically reject:
+When the user asks for research, return a concise but evidence-backed Markdown report:
 
-- Food, medicine, supplements, cosmetics, medical devices
-- IP-risk products, lookalikes, branded/trademark-adjacent goods
-- Large/heavy/fragile products
-- Size-dependent apparel with high returns
-- Strong-certification products
-- Adult products, weapons, self-defense products, tobacco, alcohol, CBD
-- Products with too-low AOV for paid ads
+### A. Best audiences
 
-## Shopify Admin Access via Local CDP
+For each top audience:
 
-### When needed
+- Audience profile
+- Main pain points
+- Search keywords
+- Social content directions
+- Product types that fit
+- Evidence level: strong / medium / weak
 
-Use local CDP if the browser tool lands on Shopify login, Cloudflare, or a separate unauthenticated browser session.
+### B. Best product candidates
 
-### Launch Chrome or Edge with CDP on Windows Git Bash
+For each product:
 
-Chrome:
+- Product name/category
+- Corresponding audience
+- Pain solved
+- Likely overseas selling price
+- Estimated sourcing cost
+- Logistics difficulty
+- Content/ad hook
+- Main keywords
+- Competitor weaknesses
+- Risks
+- Score out of 100
+- Test recommendation
+
+### C. Final recommendations
+
+For the top 3:
+
+- Why choose it
+- Why it fits low-budget Shopify testing
+- How to test with Shopify
+- First TikTok/Reels ad concept
+- Product page messaging
+- China-direct suitability
+- When to upgrade to overseas warehouse
+
+### D. Today's action plan
+
+Give a practical 7-step plan the user can execute today.
+
+## Shopify Execution Workflow
+
+Only perform live Shopify changes when the user asks for execution and access is available.
+
+### 1. Access Shopify Admin
+
+First try the browser tool. If blocked by Shopify login, Cloudflare, or a separate browser session, use the user's local Chrome/Edge via CDP.
+
+Chrome on Windows Git Bash:
 
 ```bash
 "/c/Program Files/Google/Chrome/Application/chrome.exe" \
@@ -173,7 +248,7 @@ Chrome:
   --no-default-browser-check
 ```
 
-Edge:
+Edge on Windows Git Bash:
 
 ```bash
 "/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" \
@@ -183,20 +258,18 @@ Edge:
   --no-default-browser-check
 ```
 
-Then have the user log into Shopify in that browser.
-
-### Verify CDP
+Verify:
 
 ```bash
 curl -sS http://127.0.0.1:9222/json/version
 curl -sS http://127.0.0.1:9222/json/list
 ```
 
-Find a page with `admin.shopify.com` and use its `webSocketDebuggerUrl`.
+Find an `admin.shopify.com` page and use its `webSocketDebuggerUrl`.
 
-### Python CDP pattern
+### 2. CDP Python pattern
 
-Chrome may reject websocket connections unless `suppress_origin=True` is used.
+Use `suppress_origin=True` for recent Chromium builds:
 
 ```python
 import json, requests, websocket
@@ -233,11 +306,9 @@ class CDPClient:
         })
 ```
 
-## Shopify Field-Filling Notes
+### 3. Shopify field filling
 
-Shopify Admin uses shadow DOM and TinyMCE-like rich text editors. Normal selectors often miss fields.
-
-Use a recursive shadow-DOM query:
+Shopify Admin often uses shadow DOM and rich-text editors. Use recursive querying and native setters:
 
 ```javascript
 const deepQuery = (selector, root = document) => {
@@ -252,18 +323,13 @@ const deepQuery = (selector, root = document) => {
   }
   return null;
 };
-```
 
-Use native value setters and dispatch input/change events:
-
-```javascript
 const setVal = (el, val) => {
   if (!el) throw new Error('missing element for value ' + val);
   const proto = el.tagName === 'TEXTAREA'
     ? HTMLTextAreaElement.prototype
     : HTMLInputElement.prototype;
-  const setter = Object.getOwnPropertyDescriptor(proto, 'value').set;
-  setter.call(el, val);
+  Object.getOwnPropertyDescriptor(proto, 'value').set.call(el, val);
   el.dispatchEvent(new InputEvent('input', {
     bubbles: true,
     composed: true,
@@ -287,207 +353,188 @@ if (window.tinymce?.activeEditor) {
 }
 ```
 
-## Product Setup Used in This Launch
+## Generic Shopify Product Structure
 
-### Product 1: Reusable Pet Hair Remover Roller
+For a first test, prefer this structure:
 
-Suggested fields:
+1. **Hero SKU** — the main product solving the clearest pain
+2. **Add-on SKU** — cheap accessory or complementary item
+3. **Bundle SKU** — hero + add-on to raise AOV
+4. **Collection** — a focused collection around the problem/solution
+5. **Landing page** — pain, solution, product choice, FAQ, CTA
+6. **Policies** — shipping and returns aligned with real fulfillment
 
-- Title: `Reusable Pet Hair Remover Roller`
-- SKU: `PET-HAIR-ROLLER-001`
-- Price: `22.99 CAD` in a Canadian Shopify store
-- Weight: `0.18 kg`
-- Positioning: hero SKU
-- Best surfaces: couches, upholstered chairs, car seats, pet beds, blankets, bedding
-- Expectation setting: works best on smooth fabric; less effective on deep carpet, textured knits, or deeply embedded hair
+Do not hard-code product names, SKUs, prices, or weights from a past project. Generate them from the current research and supplier data.
 
-### Product 2: Reusable Pet Hair Removal Glove
+### Product page sections
 
-Suggested fields:
+A strong generic product page should include:
 
-- Title: `Reusable Pet Hair Removal Glove`
-- SKU: `PET-HAIR-GLOVE-001`
-- Price: `12.99 CAD`
-- Weight: `0.08 kg`
-- Positioning: add-on / upsell
-- Notes: grooming accessory, not a medical product; use gently and stop if pet is uncomfortable
+- Clear headline focused on the pain solved
+- Short subheadline explaining the outcome
+- 3–5 benefit bullets
+- Best-for section
+- Not-ideal-for or expectation-setting section
+- How it works
+- Product details/specs
+- Shipping/returns expectations
+- FAQ
+- SEO title and meta description
 
-### Product 3: Pet Hair Roller + Grooming Glove Set
+### Collection page sections
 
-Suggested fields:
+A focused collection should include:
 
-- Title: `Pet Hair Roller + Grooming Glove Set`
-- SKU: `PET-HAIR-BUNDLE-001`
-- Price: `34.99 CAD`
-- Weight: `0.28 kg`
-- Positioning: bundle to increase AOV and give a complete two-step routine
-- Includes: roller + glove
+- One-sentence problem/solution description
+- The products included
+- How to choose between them
+- Link from homepage and navigation when ready
 
-## Collection Setup
+### Landing page sections
 
-Create a manual collection:
+A launch landing page should include:
 
-- Title: `Pet Hair Cleanup Essentials`
-- Handle/path: `/collections/pet-hair-cleanup-essentials`
-- Description:
+- Problem hook
+- Why existing solutions are frustrating
+- Product solution explanation
+- Hero/add-on/bundle choice guide
+- Before/after or demo section placeholder
+- Benefits and objection handling
+- FAQ
+- CTA to product or collection
 
-```html
-<p>Pet hair cleanup tools for couches, car seats, pet beds, blankets, and everyday shedding. Start with the reusable roller, add the grooming glove, or choose the bundle for a complete low-waste cleanup routine.</p>
-```
+## Shipping Policy Template Logic
 
-Add these products:
+Generate the exact policy from the current fulfillment model. For China-direct testing, include:
 
-1. Pet Hair Roller + Grooming Glove Set
-2. Reusable Pet Hair Removal Glove
-3. Reusable Pet Hair Remover Roller
+- Processing time range
+- Estimated delivery range
+- Tracking update delay warning
+- Address accuracy warning
+- Customs/import fee responsibility
+- Clear statement that delivery estimates are not guarantees
 
-Verify saved state by reopening the collection and checking all three products appear as Active.
+Do not say “fast shipping” unless the user has verified a fast route or overseas warehouse.
 
-## Landing Page Setup
+## Return and Refund Policy Template Logic
 
-Create an Online Store Page:
+Generate from the product category and risk profile. Include:
 
-- Title: `Pet Hair Cleanup Essentials`
-- Handle/path: `/pages/pet-hair-cleanup-essentials`
-- CTA link: `/collections/pet-hair-cleanup-essentials`
+- Damaged/defective/wrong item process
+- Return request window
+- Condition requirements
+- Non-returnable conditions
+- Refund method
+- Cancellation cutoff
+- Contact method
 
-Landing page structure:
+Warn that policy templates are not legal advice and should be reviewed for the user's region and target markets.
 
-```html
-<h2>Clean pet hair from couches, car seats, bedding, and pet beds — without sticky lint roller refills.</h2>
-<p>If you live with cats or dogs, loose fur shows up everywhere: sofa cushions, blankets, car interiors, and pet beds. Our Pet Hair Cleanup Essentials collection is built around simple reusable tools that are easy to demonstrate, easy to store, and practical for everyday pet homes.</p>
-<h3>Choose your cleanup routine</h3>
-<ul>
-<li><strong>Reusable Pet Hair Remover Roller:</strong> best first choice for couches, car seats, pet beds, and blankets.</li>
-<li><strong>Reusable Pet Hair Removal Glove:</strong> a lightweight grooming add-on to collect loose shedding fur before it spreads.</li>
-<li><strong>Roller + Glove Set:</strong> the complete two-step routine for cleaning the pet and the home.</li>
-</ul>
-<p><a href="/collections/pet-hair-cleanup-essentials">Shop the Pet Hair Cleanup Essentials collection</a></p>
-```
+## Product Images and Media
 
-## Policies
+Do not add images unless they are legally usable.
 
-### Shipping Policy
+Acceptable:
 
-Use a conservative China-direct policy unless the user has confirmed a faster 3PL/warehouse route:
-
-- Processing time: 1–4 business days
-- Delivery estimate: 7–20 business days after shipment
-- Tracking may take several days to update
-- Address accuracy is the customer's responsibility
-- Customs/import fees, if any, are the customer's responsibility
-
-### Return and Refund Policy
-
-Use expectation-setting for personal-use pet grooming/cleanup items:
-
-- Damaged/defective/wrong items: contact within 7 days with photos and order number
-- Returns: unused, clean, original packaging, requested within 14 days of delivery
-- Non-returnable: used grooming items, pet hair/odor/stained items, misuse, customer address errors
-- Shipping fees non-refundable unless store error
-- Orders cannot be cancelled after shipment
-
-Warn the user: policy templates are not legal advice. They should review requirements for their selling region, target markets, and Shopify Payments.
-
-## Product Images
-
-Do not add images unless they are legally usable. Acceptable sources:
-
-- User-provided photos
+- User-provided product photos
 - Supplier photos with explicit permission
-- Licensed/stock photos compatible with commercial ecommerce use
-- Self-shot sample photos/videos
+- Licensed commercial-use images
+- Self-shot sample photos and videos
+- Verified brand-owned creative
 
 Avoid:
 
-- Copying Amazon/Temu/SHEIN/AliExpress competitor images without permission
-- Using supplier photos that include watermarks, brand marks, or unrelated logos
-- Using AI mockups as if they are exact product photos unless clearly validated
+- Copying Amazon, Temu, SHEIN, Etsy, TikTok Shop, or competitor images
+- Using watermarked supplier images
+- Using logos, characters, trademarks, or brand marks without rights
+- Presenting AI mockups as exact product photos without validation
 
-## Fulfillment Connections
+Recommend a simple content plan:
 
-Do not claim fulfillment apps are connected unless actually authorized.
+1. Order or borrow a sample
+2. Shoot vertical phone demos
+3. Capture before/after scenes
+4. Photograph packaging and product details
+5. Use real customer-style UGC angles before paid ads
 
-Common options:
+## Fulfillment Setup
 
-- DSers for AliExpress mapping
-- CJ Dropshipping for supplier/fulfillment sourcing
-- Zendrop / AutoDS if user already has accounts
+Do not claim fulfillment is connected until verified.
 
-Needed from user:
+Common paths:
 
-- App installed/authorized in Shopify
-- Supplier product URL or selected SKU
+- AliExpress + DSers
+- CJ Dropshipping
+- 1688 supplier + agent/3PL
+- Zendrop / AutoDS / other fulfillment apps
+- Manual orders during validation
+- Overseas warehouse only after stable demand
+
+Before mapping products, collect:
+
+- Supplier URL
+- SKU/variant data
+- Cost and MOQ
 - Shipping route and delivery estimate
-- Variant mapping
-- Cost and shipping quote
-- Whether auto-fulfillment is enabled
-
-SHEIN is generally not recommended as a direct fulfillment source because it is a retail marketplace and may cause packaging, invoice, return, resale, and IP/content risks.
+- Destination countries
+- Tracking availability
+- Return/defect process
+- Whether packaging has supplier branding
 
 ## Pixel Setup
 
-Do not set TikTok Pixel or Meta Pixel without:
+Do not claim pixels are set until verified.
 
-- TikTok Business/Event Manager access or Pixel ID
-- Meta Business Manager/Events Manager access or Pixel ID
-- User decision on official Shopify apps vs manual/custom pixel setup
+Needed:
 
-Recommended order:
+- TikTok Pixel ID or TikTok app authorization
+- Meta Pixel ID or Facebook & Instagram app authorization
+- Business Manager / Events Manager access
+- Domain/checkout constraints understood
+- Test event verification after setup
 
-1. Finish product/collection/page setup
-2. Add legal product images
-3. Confirm payment + shipping settings
-4. Connect DSers/CJ or chosen fulfillment app
-5. Install TikTok/Facebook sales channel apps
-6. Add pixels and verify events
-7. Run a test checkout/event verification
+Recommended event checks:
 
-## Homepage / Theme Next Steps
-
-After product, collection, landing page, and policies exist, build the storefront:
-
-- Hero section: pet hair problem + before/after promise
-- Featured collection: Pet Hair Cleanup Essentials
-- Bundle highlight: Roller + Glove Set
-- Short UGC video/demo section
-- Benefits: reusable, no batteries, no sticky refills, lightweight
-- FAQ: surfaces, shipping time, returns, how to clean, not ideal surfaces
-- Policy snippets: shipping estimate and return rules
-- Add collection to main navigation/footer
+- PageView
+- ViewContent
+- AddToCart
+- InitiateCheckout
+- Purchase, when test checkout is possible
 
 ## Verification Checklist
 
-- [ ] Products exist and are Active
-- [ ] Titles, prices, SKUs, weights are saved
-- [ ] Descriptions are original and expectation-setting is clear
-- [ ] Collection exists at `/collections/pet-hair-cleanup-essentials`
-- [ ] Collection contains all three products
-- [ ] Landing page exists at `/pages/pet-hair-cleanup-essentials`
-- [ ] Landing page CTA links to the collection
-- [ ] Shipping policy is published and no longer says `No policy set`
-- [ ] Return/refund policy is published and no longer says `No policy set`
+Before reporting completion, verify the actual saved state:
+
+- [ ] Research sources were current and cited or summarized honestly
+- [ ] Rejected products and risks are documented
+- [ ] Final product recommendations have scores
+- [ ] Shopify products were saved, if execution was requested
+- [ ] Product copy is original and not copied from competitors
+- [ ] Collections contain the intended products
+- [ ] Landing pages link to the intended products/collections
+- [ ] Policies match the actual fulfillment model
 - [ ] No unlicensed images were uploaded
-- [ ] DSers/CJ connection is not claimed unless verified
-- [ ] TikTok/Meta pixel is not claimed unless ID/app/event verification is done
+- [ ] Fulfillment app connection is verified before claiming it
+- [ ] Pixel events are tested before claiming they work
+- [ ] No prior user's private project details are embedded in generic deliverables
 
 ## Common Pitfalls
 
-1. **Cloud browser is not the user's browser.** Shopify login cookies may not exist there. Use local CDP if blocked.
-2. **Shopify fields hide in shadow DOM.** Use `deepQuery`, not simple selectors only.
-3. **TinyMCE textarea value may show length 0 even when editor content exists.** Verify via editor text, page body preview, or saved storefront/admin snippet.
-4. **Collection product selection may require checking checkboxes then clicking modal Add, then page Save.** Verify the collection product list after saving.
-5. **Policy modal may say saved but list status can lag until refresh.** Reload and verify policy labels no longer show `No policy set`.
-6. **Don't overpromise shipping.** For China-direct, say estimated delivery and make clear it is not guaranteed.
-7. **Don't upload stolen product photos.** Product images are a common early-store risk.
-8. **Do not call policy templates legal advice.** Always recommend user review for Canada/US compliance.
+1. **Embedding a past project as generic skill content.** Keep public skills general and use examples only when clearly labeled.
+2. **Skipping current research.** A good product last month may be saturated now.
+3. **Over-trusting marketplace sales.** Verify with reviews, complaints, ad creatives, and supplier economics.
+4. **Ignoring ad economics.** Low product cost does not mean profitable after CAC, shipping, returns, and payment fees.
+5. **Overpromising delivery.** China-direct shipping needs conservative delivery language.
+6. **Using copyrighted images.** This creates avoidable store and ad-account risk.
+7. **Assuming Shopify UI selectors are stable.** Verify fields after every save.
+8. **Claiming integrations are done without event/API/app verification.** Always test.
 
-## One-Shot Launch Sequence
+## One-Shot Workflow
 
-1. Research audience and select hero problem/product.
-2. Create 3 products: hero, add-on, bundle.
-3. Create collection and add all products.
-4. Create landing page with CTA to collection.
-5. Publish shipping policy and return/refund policy.
-6. Add legal product images and homepage sections.
-7. Connect fulfillment app and pixels only after user provides authorization/IDs.
+1. Gather user constraints: market, budget, inventory preference, fulfillment, risk limits.
+2. Research 10 audiences and shortlist the strongest pain points.
+3. Gather keyword, social, review, marketplace, competitor, and supplier evidence.
+4. Score product candidates and choose the top 3.
+5. Build a Shopify test plan: hero SKU, add-on, bundle, collection, landing page, policies.
+6. Execute in Shopify if authorized and verify saved artifacts.
+7. Prepare next steps for images, fulfillment, pixels, ads, and overseas warehouse timing.
